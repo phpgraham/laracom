@@ -1,0 +1,13 @@
+language: php
+
+php:
+  - 7.1
+
+before_script:
+  - cp .env.testing .env
+  - composer self-update
+  - composer install --no-interaction
+  - composer dump-autoload
+
+script:
+  - vendor/bin/phpunit --coverage-text --colors
